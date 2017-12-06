@@ -217,7 +217,7 @@ class BulletinSwipeInteractionController: UIPercentDrivenInteractiveTransition, 
 
     private func resetCardViews() {
 
-        let options: UIViewAnimationOptions = UIViewAnimationOptions(rawValue: 6 << 7)
+        let options = UIViewAnimationOptions(rawValue: 6 << 7)
 
         let animations = {
             self.snapshotView?.transform = .identity

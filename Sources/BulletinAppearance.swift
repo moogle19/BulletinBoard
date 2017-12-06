@@ -100,11 +100,10 @@ extension BulletinAppearance {
 
     open func makeTitleFont() -> UIFont {
 
-        if let titleFontDescriptor = self.titleFontDescriptor {
+        if let titleFontDescriptor = titleFontDescriptor {
             return UIFont(descriptor: titleFontDescriptor, size: titleFontSize)
-        } else {
-            return UIFont.systemFont(ofSize: titleFontSize, weight: UIFontWeightMedium)
         }
+        return UIFont.systemFont(ofSize: titleFontSize, weight: UIFontWeightMedium)
 
     }
 
@@ -116,11 +115,10 @@ extension BulletinAppearance {
 
         let size = shouldUseCompactDescriptionText ? compactDescriptionFontSize : descriptionFontSize
 
-        if let descriptionFontDescriptor = self.descriptionFontDescriptor {
+        if let descriptionFontDescriptor = descriptionFontDescriptor {
             return UIFont(descriptor: descriptionFontDescriptor, size: size)
-        } else {
-            return UIFont.systemFont(ofSize: size)
         }
+        return .systemFont(ofSize: size)
 
     }
 
@@ -130,11 +128,10 @@ extension BulletinAppearance {
 
     open func makeActionButtonFont() -> UIFont {
 
-        if let buttonFontDescriptor = self.buttonFontDescriptor {
+        if let buttonFontDescriptor = buttonFontDescriptor {
             return UIFont(descriptor: buttonFontDescriptor, size: actionButtonFontSize)
-        } else {
-            return UIFont.systemFont(ofSize: actionButtonFontSize, weight: UIFontWeightSemibold)
         }
+        return .systemFont(ofSize: actionButtonFontSize, weight: UIFontWeightSemibold)
 
     }
 
@@ -144,11 +141,10 @@ extension BulletinAppearance {
 
     open func makeAlternativeButtonFont() -> UIFont {
 
-        if let buttonFontDescriptor = self.buttonFontDescriptor {
+        if let buttonFontDescriptor = buttonFontDescriptor {
             return UIFont(descriptor: buttonFontDescriptor, size: alternativeButtonFontSize)
-        } else {
-            return UIFont.systemFont(ofSize: alternativeButtonFontSize, weight: UIFontWeightSemibold)
         }
+        return .systemFont(ofSize: alternativeButtonFontSize, weight: UIFontWeightSemibold)
 
     }
 

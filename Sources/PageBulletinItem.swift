@@ -71,7 +71,7 @@ import UIKit
 
         // Image View
 
-        if let image = self.image {
+        if let image = image {
 
             let imageView = UIImageView()
             imageView.image = image

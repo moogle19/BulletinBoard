@@ -72,8 +72,8 @@ import UIKit
     @objc public init(rootItem: BulletinItem) {
 
         self.rootItem = rootItem
-        self.itemsStack = []
-        self.currentItem = rootItem
+        itemsStack = []
+        currentItem = rootItem
 
     }
 
@@ -271,9 +271,7 @@ import UIKit
         currentItem.tearDown()
         currentItem.manager = nil
 
-        viewController.dismiss(animated: animated) {
-            self.completeDismissal()
-        }
+        viewController.dismiss(animated: animated, completion: completeDismissal)
 
         isPrepared = false
 
@@ -298,12 +296,10 @@ import UIKit
 
         viewController = nil
 
-        currentItem = self.rootItem
-        tearDownItemsChain(startingAt: self.rootItem)
+        currentItem = rootItem
+        tearDownItemsChain(startingAt: rootItem)
 
-        for item in itemsStack {
-            tearDownItemsChain(startingAt: item)
-        }
+        itemsStack.forEach(tearDownItemsChain)
 
         itemsStack.removeAll()
 
@@ -337,9 +333,8 @@ import UIKit
             arrangedSubview.isHidden = isPreparing ? false : true
         }
 
-        for arrangedSubview in newArrangedSubviews {
-            viewController.contentStackView.addArrangedSubview(arrangedSubview)
-        }
+        
+        newArrangedSubviews.forEach(viewController.contentStackView.addArrangedSubview)
 
         // Animate transition
 

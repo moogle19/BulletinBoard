@@ -175,11 +175,7 @@ final class BulletinViewController: UIViewController, UIGestureRecognizerDelegat
     // MARK: - Gesture Recognizer
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if touch.view?.isDescendant(of: contentView) == true {
-            return false
-        }
-        
-        return true
+        return touch.view?.isDescendant(of: contentView) != true
     }
 
     // MARK: - Layout
@@ -287,9 +283,8 @@ final class BulletinViewController: UIViewController, UIGestureRecognizerDelegat
 
             if let isDark = manager?.backgroundViewStyle.rawValue.isDark {
                 return isDark ? .lightContent : .default
-            } else {
-                fallthrough
             }
+            fallthrough
 
         default:
             return .default
@@ -447,7 +442,7 @@ extension BulletinViewController {
             self.contentBottomConstraint.constant = -12 // same value as in moveIntoPlace()
             self.centerYConstraint.constant = 0
             self.contentView.superview?.layoutIfNeeded()
-        }, completion: nil)
+        })
     }
 }
 

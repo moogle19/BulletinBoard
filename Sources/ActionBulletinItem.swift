@@ -169,7 +169,7 @@ import UIKit
 
         // Buttons Stack
 
-        if (actionButtonTitle == nil) && (alternativeButtonTitle == nil) {
+        if actionButtonTitle == nil && alternativeButtonTitle == nil {
             return arrangedSubviews
         }
 
